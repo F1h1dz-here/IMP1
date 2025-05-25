@@ -1,0 +1,663 @@
+ @import url('https://fonts.googleapis.com/css?family=Carter+One');
+
+ * {
+     box-sizing: border-box;
+ }
+
+ body,
+ html {
+     margin: 0;
+     padding: 0;
+     height: 100%;
+     font-family: 'Carter One', sans-serif;
+     font-weight: bold;
+     scroll-behavior: smooth;
+     /* overflow-x: hidden; */
+ }
+
+ .first--slide {
+     position: relative;
+     width: 100%;
+     height: 100%;
+     background: #423d46;
+     color: #d8d0be;
+     text-transform: uppercase;
+     font-weight: 700;
+     overflow: hidden;
+ }
+
+ .first--slide::before {
+     content: "";
+     position: absolute;
+     width: 0;
+     height: 100%;
+     left: 0;
+     background: #fcbb5e;
+     z-index: 3;
+     animation: firstSlideRemove 0.5s ease 6s forwards;
+ }
+
+ @keyframes firstSlideRemove {
+     to {
+         width: 100%;
+     }
+ }
+
+ .slide--content {
+     text-align: center;
+     padding: 4em;
+     position: absolute;
+     left: 50%;
+     top: 45%;
+     transform: translate(-50%, -45%);
+     animation: firstSlideOver 0.5s ease 2s forwards;
+ }
+
+ .first--slide .slide--content h1,
+ .first--slide .slide--content h2 {
+     margin: 0;
+     line-height: 1.2em;
+     opacity: 0;
+ }
+
+ .first--slide .slide--content h1 {
+     font-size: 6em;
+     transform: scale(0) rotate(-45deg);
+     animation: firstSlideTextOne 0.5s ease forwards;
+ }
+
+ .first--slide .slide--content h2 {
+     font-size: 4em;
+     color: #fcbb5e;
+     animation: firstSlideTextTwo 0.5s ease 0.35s forwards;
+ }
+
+ @keyframes firstSlideTextOne {
+     to {
+         opacity: 1;
+         transform: scale(1) rotate(0);
+     }
+ }
+
+ @keyframes firstSlideTextTwo {
+     to {
+         opacity: 1;
+     }
+ }
+
+ @keyframes firstSlideOver {
+     to {
+         opacity: 0;
+         transform: translate(-50%, -45%) rotate(-90deg);
+     }
+ }
+
+ .second--canvas {
+     position: relative;
+     width: 100%;
+     height: 100%;
+     overflow: hidden;
+ }
+
+ .second--canvas::before,
+ .second--canvas::after {
+     content: "";
+     position: absolute;
+     width: 0;
+     height: 100%;
+     top: 0;
+     z-index: -1;
+     animation: secondCanvasIntro 0.5s ease forwards;
+ }
+
+ .second--canvas::before {
+     background: #e97e23;
+ }
+
+ .second--canvas::after {
+     background: #ff1f64;
+     animation-delay: 0.5s;
+ }
+
+ @keyframes secondCanvasIntro {
+     to {
+         width: 100%;
+     }
+ }
+
+ .second--canvas .content {
+     text-align: center;
+     position: relative;
+     top: 40%;
+     transform: translateY(-40%);
+     text-transform: uppercase;
+     color: #fff;
+ }
+
+ .second--canvas .content h2 {
+     font-size: 5em;
+     margin: 0;
+     opacity: 0;
+     animation: fadeIn 0.5s ease forwards;
+ }
+
+ .second--canvas .content h2:nth-child(1) {
+     animation-delay: 1s;
+     transform: rotate(-90deg);
+ }
+
+ .second--canvas .content h2:nth-child(2) {
+     animation-delay: 1.5s;
+     transform: translateX(5em);
+ }
+
+ .second--canvas .content h2:nth-child(3) {
+     animation-delay: 2s;
+     transform: rotate(90deg);
+ }
+
+ @keyframes fadeIn {
+     to {
+         opacity: 1;
+         transform: rotate(0) translateX(0);
+     }
+ }
+
+ .canvas--remove {
+     position: absolute;
+     width: 100%;
+     height: 0;
+     left: 0;
+     bottom: 0;
+     background: #fff;
+     z-index: 2;
+     animation: canvasRemove 0.5s ease 3s forwards;
+ }
+
+ @keyframes canvasRemove {
+     to {
+         height: 100%;
+     }
+ }
+
+ .third--canvas {
+     position: relative;
+     width: 100%;
+     height: 100%;
+     overflow: hidden;
+ }
+
+ .star--bg {
+     position: absolute;
+     width: 100%;
+     height: 100%;
+     background: url("Star-Transparent-PNG.png") center / cover repeat;
+     opacity: 0;
+     animation: fadeInBg 0.5s ease 3s forwards;
+ }
+
+ @keyframes fadeInBg {
+     to {
+         opacity: 1;
+     }
+ }
+
+ .third--canvas .center--line {
+     position: absolute;
+     width: 0;
+     height: 5px;
+     background: #fff;
+     top: 50%;
+     left: 0;
+     animation: expandLine 0.5s ease 1s forwards;
+ }
+
+ @keyframes expandLine {
+     to {
+         width: 100%;
+     }
+ }
+
+ .third--canvas .center--line h1 {
+     position: absolute;
+     left: 50%;
+     top: 50%;
+     transform: translate(-50%, -50%);
+     color: white;
+     font-size: 5em;
+     text-transform: uppercase;
+     margin: 0;
+ }
+
+ .third--canvas .center--line h1>span {
+     display: inline-block;
+     opacity: 0;
+     animation: showLetter 0.1s ease forwards;
+ }
+
+ @keyframes showLetter {
+     to {
+         opacity: 1;
+     }
+ }
+
+ .third--canvas {
+     position: relative;
+     width: 100%;
+     height: 100%;
+     overflow: hidden;
+     background: transparent;
+ }
+
+ .star--bg {
+     width: 100%;
+     height: 100%;
+     position: absolute;
+     left: 0;
+     top: 0;
+     background: url("Star-Transparent-PNG.png") center / cover repeat;
+     opacity: 0;
+     animation: thirdCanvasBackground 500ms ease 3s 1 forwards;
+ }
+
+ .star--bg img {
+     position: absolute;
+     width: auto;
+     height: auto;
+     top: 1em;
+     animation: thirdCanvasBanner 500ms ease 3.5s 1 forwards;
+     opacity: 0;
+ }
+
+ .star--bg img#b1 {
+     transform: rotate(-15deg);
+     left: 0;
+ }
+
+ .star--bg img#b2 {
+     transform: rotate(15deg);
+     right: 0;
+ }
+
+ @keyframes thirdCanvasBanner {
+     from {
+         opacity: 0;
+     }
+
+     to {
+         opacity: 1;
+     }
+ }
+
+ @keyframes thirdCanvasBackground {
+     from {
+         opacity: 0;
+
+     }
+
+     to {
+         opacity: 1;
+
+     }
+ }
+
+ .third--canvas::before,
+ .third--canvas::after {
+     content: "";
+     position: absolute;
+     width: 100%;
+     height: 0;
+     bottom: 0;
+     left: 0;
+     z-index: -1;
+     animation: thirdCanvasIntro 500ms ease 0s 1 forwards;
+ }
+
+ .third--canvas::before {
+     background: #f09e40;
+     animation-delay: 200ms
+ }
+
+ .third--canvas::after {
+     background-image: linear-gradient(to right, pink, rgb(204, 153, 162));
+     animation-delay: 700ms;
+ }
+
+
+ @keyframes thirdCanvasIntro {
+     from {
+         height: 0%;
+     }
+
+     to {
+         height: 100%;
+     }
+ }
+
+ .third--canvas .center--line {
+     position: absolute;
+     width: 0%;
+     height: 5px;
+     background: #fff;
+     top: 0;
+     bottom: 0;
+     margin: auto;
+     left: 0;
+     animation: thirdCanvasCenterLine 500ms ease 1s 1 forwards,
+         thirdCanvasCenterLineOne 500ms ease 1.5s 1 forwards;
+ }
+
+ .third--canvas .center--line img {
+     position: absolute;
+     width: auto;
+     height: auto;
+     top: 50%;
+     transform: translateY(-50%) scale(0);
+     opacity: 0;
+     animation: thirdCanvasBalloons 500ms ease 2s 1 forwards;
+ }
+
+ .third--canvas .center--line img#bl--left {
+     left: 2em;
+ }
+
+ .third--canvas .center--line img#bl--right {
+     right: 2em;
+     animation-delay: 2.5s;
+ }
+
+ .third--canvas .center--line h1 {
+     position: absolute;
+     width: auto;
+     height: auto;
+     left: 50%;
+     top: 50%;
+     transform: translate(-50%, -50%);
+     color: white;
+     text-transform: uppercase;
+     margin: 0;
+     font-size: 5em;
+ }
+
+ .third--canvas .center--line h1>span {
+     position: relative;
+     top: 2em;
+     opacity: 0;
+     animation: thirdCanvasLastText 100ms ease 3s 1 forwards;
+ }
+
+ .third--canvas .center--line h1>span:nth-child(1) {
+     animation-delay: 3s;
+ }
+
+ .third--canvas .center--line h1>span:nth-child(2) {
+     animation-delay: 3100ms;
+ }
+
+ .third--canvas .center--line h1>span:nth-child(3) {
+     animation-delay: 3200ms;
+ }
+
+ .third--canvas .center--line h1>span:nth-child(4) {
+     animation-delay: 3300ms;
+ }
+
+ .third--canvas .center--line h1>span:nth-child(5) {
+     animation-delay: 3400ms;
+ }
+
+ .third--canvas .center--line h1>span:nth-child(6) {
+     animation-delay: 3500ms;
+ }
+
+ .third--canvas .center--line h1>span:nth-child(7) {
+     animation-delay: 3600ms;
+ }
+
+ .third--canvas .center--line h1>span:nth-child(8) {
+     animation-delay: 3700ms;
+ }
+
+ .third--canvas .center--line h1>span:nth-child(9) {
+     animation-delay: 3800ms;
+ }
+
+ .third--canvas .center--line h1>span:nth-child(10) {
+     animation-delay: 3900ms;
+ }
+
+ .third--canvas .center--line h1>span:nth-child(11) {
+     animation-delay: 4000ms;
+ }
+
+ .third--canvas .center--line h1>span:nth-child(12) {
+     animation-delay: 4100ms;
+ }
+
+ .third--canvas .center--line h1>span:nth-child(13) {
+     animation-delay: 4200ms;
+ }
+
+ .third--canvas>img {
+     position: absolute;
+     width: auto;
+     height: auto;
+     bottom: 1em;
+     transform: scale(0);
+     animation: giftIcon 500ms ease 4300ms 1 forwards;
+ }
+
+ .third--canvas>img#gf1 {
+     left: 35%;
+ }
+
+ .third--canvas>img#gf2 {
+     left: 45%;
+     bottom: 2em;
+     animation-delay: 4800ms;
+ }
+
+ .third--canvas>img#gf3 {
+     left: 55%;
+     animation-delay: 5300ms;
+ }
+
+ @keyframes giftIcon {
+     from {
+         transform: scale(0);
+     }
+
+     to {
+         transform: scale(1);
+     }
+ }
+
+ @keyframes thirdCanvasLastText {
+     from {
+         opacity: 0;
+         top: 2em;
+     }
+
+     to {
+         opacity: 1;
+         top: 0;
+     }
+ }
+
+ @keyframes thirdCanvasBalloons {
+     from {
+         opacity: 0;
+         transform: scale(0) translateY(-50%);
+     }
+
+     to {
+         opacity: 1;
+         transform: scale(1) translateY(-50%);
+     }
+ }
+
+ @keyframes thirdCanvasCenterLine {
+     from {
+         width: 0
+     }
+
+     to {
+         width: 100%;
+     }
+ }
+
+ @keyframes thirdCanvasCenterLineOne {
+     from {
+         height: 5px;
+     }
+
+     to {
+         height: 200px;
+     }
+ }
+
+ .center--line {
+     position: relative;
+     z-index: 999;
+     transition: all 1s ease;
+ }
+
+ .center--line.sticky {
+     position: fixed;
+     top: 0;
+     left: 0;
+     right: 0;
+     margin: auto;
+     width: fit-content;
+     z-index: 9999;
+     transform: none !important;
+ }
+
+ #bl--left,
+ #bl--right {
+     transition: all 1s ease-in-out;
+ }
+
+ .gift-bubble {
+     position: absolute;
+     background: white;
+     padding: 6px 10px;
+     border-radius: 8px;
+     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+     font-size: 14px;
+     white-space: nowrap;
+     transform: translate(-50%, -100%);
+     pointer-events: none;
+     opacity: 0;
+     transition: opacity 0.3s ease;
+     z-index: 10;
+ }
+
+ .gift-bubble.show {
+     opacity: 1;
+     pointer-events: auto;
+ }
+
+ .gift-bubble::after {
+     content: '';
+     position: absolute;
+     bottom: -6px;
+     left: 50%;
+     transform: translateX(-50%);
+     border-width: 6px;
+     border-style: solid;
+     border-color: white transparent transparent transparent;
+ }
+
+ .anaya--banner {
+     background-image: linear-gradient(to right, rgb(255, 61, 121), rgb(50, 0, 255));
+     color: #fff;
+     font-size: 2.5rem;
+     font-weight: bold;
+     text-align: center;
+     padding: 12px 0;
+     width: 100%;
+     position: absolute;
+     top: 225px;
+     z-index: 9998;
+     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+     animation: fadeIn 1s ease-in-out forwards;
+     font-family: 'Poppins', sans-serif;
+     letter-spacing: 2px;
+     display: none;
+
+ }
+
+ @keyframes fadeIn {
+     0% {
+         opacity: 0;
+         transform: translateY(-10px);
+     }
+
+     100% {
+         opacity: 1;
+         transform: translateY(0);
+     }
+ }
+
+ .sticky {
+     position: fixed;
+     top: 0;
+     left: 50%;
+     transform: translateX(-50%);
+     z-index: 9999;
+ }
+
+ #movebox {
+     position: relative;
+     width: 320px;
+     /* height: 220px; */
+     overflow: hidden;
+     border: transparent;
+     border-radius: 10px;
+     background-color: transparent;
+     padding-left: 20px;
+ }
+
+ .slider {
+     display: flex;
+     transition: transform 0.5s ease-in-out;
+     width: fit-content;
+ }
+
+ .slider img {
+     width: 300px;
+     margin: 0 10px;
+     margin: 10px;
+     border: 2px solid transparent;
+     border-radius: 5px;
+     flex-shrink: 0;
+ }
+
+ button {
+     position: absolute;
+     top: 50%;
+     transform: translateY(-50%);
+     padding: 8px 12px;
+     font-size: 14px;
+     cursor: pointer;
+     background-color: transparent;
+     color: #000;
+     border: transparent;
+     border-radius: 5px;
+     z-index: 2;
+ }
+
+ #prev {
+     left: 10px;
+ }
+
+ #next {
+     right: 10px;
+ }
+
+ button {
+     background-color: transparent;
+     border: none;
+     font-size: 40px;
+ }
